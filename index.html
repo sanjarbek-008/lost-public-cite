@@ -31,6 +31,37 @@ footer{text-align:center;padding:25px;background:#14141b;color:#aaa;border-top:2
 button{border:0;cursor:pointer}
 </style>
 </head>
+  <script>
+async function updateServerStatus() {
+  const status = document.getElementById("status");
+  const players = document.getElementById("players");
+  const map = document.getElementById("map");
+
+  try {
+    const response = await fetch(
+      "https://api.gamemonitoring.net/servers/15051113"
+    );
+
+    if (!response.ok) throw new Error("API ishlamadi");
+
+    const result = await response.json();
+    const server = result.response || result;
+
+    status.textContent = "🟢 ONLINE";
+    players.textContent =
+      (server.numplayers ?? server.players ?? "--") + " / " +
+      (server.maxplayers ?? server.maxPlayers ?? "--");
+    map.textContent = server.map ?? server.mapname ?? "--";
+  } catch (error) {
+    status.textContent = "⚪ Ma’lumot olinmadi";
+    players.textContent = "-- / --";
+    map.textContent = "--";
+  }
+}
+
+updateServerStatus();
+setInterval(updateServerStatus, 60000);
+      </script>
 <body>
 
 <header>
