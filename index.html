@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0f">
+<title>LOST_PUBLIC | CS 1.6</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0f;color:#eee;font-family:Arial,sans-serif}
+header{background:#14141b;padding:22px 15px;text-align:center;border-bottom:2px solid #e32636}
+.logo{font-size:30px;font-weight:900;color:#ff3548}
+.logo span{color:white}
+header p{color:#aaa;margin-bottom:0}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;padding:15px;background:#101015}
+nav a{color:white;text-decoration:none;font-weight:bold}
+nav a:hover{color:#ff3548}
+.hero{text-align:center;padding:55px 18px;background:linear-gradient(135deg,#1c1015,#101015 65%)}
+.hero h1{font-size:35px;margin:0 0 15px}
+.red{color:#ff3548}
+.hero p{color:#bbb;line-height:1.7}
+.btn{display:inline-block;background:#e32636;color:white;text-decoration:none;padding:13px 20px;border-radius:6px;font-weight:bold;margin:7px}
+section{padding:28px 16px;max-width:950px;margin:auto}
+h2{border-left:4px solid #ff3548;padding-left:12px}
+.card{background:#17171f;border:1px solid #2b2b35;border-radius:10px;padding:18px;margin:12px 0}
+.ip{font-size:19px;color:#ff5260;font-weight:bold;word-break:break-word}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.price{font-size:23px;color:#ff5260;font-weight:bold}
+.small{font-size:13px;color:#aaa}
+footer{text-align:center;padding:25px;background:#14141b;color:#aaa;border-top:2px solid #e32636}
+button{border:0;cursor:pointer}
+</style>
+</head>
+<body>
 
+<header>
+  <div class="logo">LOST<span>_PUBLIC</span></div>
+  <p>COUNTER-STRIKE 1.6 • PUBLIC SERVER</p>
+</header>
+
+<nav>
+  <a href="#home">Bosh sahifa</a>
+  <a href="#server">Server</a>
+  <a href="#admins">Adminliklar</a>
+  <a href="#rules">Qoidalar</a>
+</nav>
+
+<div class="hero" id="home">
+  <h1>WELCOME TO <span class="red">LOST PUBLIC</span></h1>
+  <p>Eng mazzasi — LOST PUBLIC!<br>
+  Barcha o‘yinchilarni serverimizda kutib qolamiz!</p>
+  <a class="btn" href="#server">SERVERGA ULANISH</a>
+  <a class="btn" href="#admins">ADMINLIK OLISH</a>
+</div>
+
+<section id="server">
+  <h2>🎮 Server ma’lumotlari</h2>
+  <div class="card">
+    <p>Server nomi: <b>[LOST_PUBLIC] | [PUBLIC #1]</b></p>
+    <p>Server IP manzili:</p>
+    <div class="ip" id="serverip">195.158.4.108:27043</div>
+    <button class="btn" onclick="copyIP()">📋 IP nusxalash</button>
+    <p class="small" id="copymsg">CS 1.6 serverimizga qo‘shiling!</p>
+  </div>
+</section>
+
+<section id="admins">
+  <h2>👑 Adminlik narxlari</h2>
+  <div class="grid">
+    <div class="card"><h3>PREMIUM</h3><div class="price">35 000 so‘m</div></div>
+    <div class="card"><h3>GOLD</h3><div class="price">45 000 so‘m</div></div>
+    <div class="card"><h3>SPONSOR</h3><div class="price">80 000 so‘m</div></div>
+    <div class="card"><h3>ADMIN</h3><div class="price">100 000 so‘m</div></div>
+    <div class="card"><h3>GL ADMIN</h3><div class="price">120 000 so‘m</div></div>
+  </div>
+  <p class="small">Adminlik sotib olish uchun server egasi bilan bog‘laning.</p>
+</section>
+
+<section id="rules">
+  <h2>📜 Server qoidalari</h2>
+  <div class="card">
+    <p>1. O‘yinchilarga hurmat bilan munosabatda bo‘ling.</p>
+    <p>2. Cheat va taqiqlangan dasturlardan foydalanmang.</p>
+    <p>3. Server ma’murlarining qonuniy talablariga rioya qiling.</p>
+    <p>4. Chatda haqorat va spam qilmang.</p>
+    <p>5. O‘yindan zavqlaning! 🎮</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">LOST_PUBLIC</div>
+  <p>HAMMALARIZNI SERVERIMIZDA KUTIB QOLAMIZ!</p>
+  <p>Server IP: 195.158.4.108:27043</p>
+  <p class="small">© 2026 LOST_PUBLIC | Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<script>
+function copyIP(){
+  const ip = "195.158.4.108:27043";
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(ip).then(()=>{
+      document.getElementById("copymsg").textContent="IP nusxalandi!";
+    }).catch(()=>showIP(ip));
+  } else {
+    showIP(ip);
+  }
+}
+function showIP(ip){
+  prompt("IP manzilini nusxalang:",ip);
+}
+</script>
+</body>
+  </html>
