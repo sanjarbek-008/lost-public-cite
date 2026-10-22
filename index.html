@@ -1,318 +1,185 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-  <meta name="description" content="LOST_PUBLIC CS 1.6 Public Server. Server ma'lumotlari va adminlik narxlari.">
-  <title>LOST_PUBLIC | PUBLIC #1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<meta name="description" content="LOST_PUBLIC CS 1.6 Public Server">
+<title>LOST_PUBLIC | PUBLIC #1</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #101010;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 35px 15px;
-      text-align: center;
-      background: linear-gradient(135deg, #300000, #111111, #620000);
-      border-bottom: 2px solid #ff2525;
-    }
-
-    header h1 {
-      font-size: clamp(27px, 6vw, 44px);
-      color: #ff3030;
-      letter-spacing: 2px;
-      text-shadow: 0 0 15px #8b0000;
-    }
-
-    header p {
-      color: #dddddd;
-      margin-top: 8px;
-    }
-
-    .container {
-      width: min(100% - 28px, 950px);
-      margin: 25px auto;
-    }
-
-    .card {
-      background: #1b1b1b;
-      border: 1px solid #383838;
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 18px #00000050;
-    }
-
-    h2, h3 {
-      color: #ff3838;
-      margin-bottom: 12px;
-    }
-
-    .server-ip {
-      font-size: clamp(19px, 4vw, 27px);
-      font-weight: bold;
-      color: white;
-      overflow-wrap: anywhere;
-      margin: 10px 0 15px;
-    }
-
-    button, .connect-button {
-      display: inline-block;
-      background: #d71920;
-      color: white;
-      border: 0;
-      padding: 11px 18px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-      margin: 4px 3px 4px 0;
-    }
-
-    button:hover, .connect-button:hover {
-      background: #ff3030;
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .status-item {
-      background: #111111;
-      border: 1px solid #343434;
-      border-radius: 10px;
-      padding: 13px;
-      text-align: center;
-    }
-
-    .status-item span {
-      display: block;
-      color: #bbbbbb;
-      font-size: 13px;
-    }
-
-    .status-item strong {
-      display: block;
-      margin-top: 5px;
-      font-size: 18px;
-      overflow-wrap: anywhere;
-    }
-
-    .prices {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .price {
-      padding: 17px 10px;
-      text-align: center;
-      background: #111111;
-      border: 1px solid #4a2525;
-      border-radius: 10px;
-    }
-
-    .price h3 {
-      font-size: 17px;
-    }
-
-    .price strong {
-      color: #ffffff;
-      font-size: 21px;
-    }
-
-    .small {
-      color: #aaaaaa;
-      font-size: 13px;
-      margin-top: 12px;
-    }
-
-    .rules {
-      padding-left: 22px;
-    }
-
-    .rules li {
-      margin: 7px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 22px 12px;
-      color: #999999;
-      border-top: 1px solid #333333;
-      font-size: 13px;
-    }
-
-    a {
-      color: #ff5555;
-    }
-
-    .monitor {
-      display: block;
-      width: 160px;
-      max-width: 100%;
-      height: auto;
-      margin: 18px auto 10px;
-      border-radius: 8px;
-    }
-  </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#101010;color:#f5f5f5;line-height:1.6}
+header{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#300000,#111,#650000);border-bottom:2px solid #ff2525}
+header h1{font-size:clamp(28px,6vw,45px);color:#ff3030;letter-spacing:2px;text-shadow:0 0 15px #a00000}
+header p{color:#ddd;margin-top:6px}
+.container{width:min(100% - 28px,950px);margin:25px auto}
+.card{background:#1b1b1b;border:1px solid #383838;border-radius:14px;padding:22px;margin-bottom:20px;box-shadow:0 5px 18px #0005}
+h2,h3{color:#ff3838;margin-bottom:12px}
+.server-ip{font-size:clamp(20px,4vw,28px);font-weight:bold;overflow-wrap:anywhere;margin:12px 0}
+button,.btn{display:inline-block;background:#d71920;color:white;border:0;padding:11px 17px;border-radius:8px;font-weight:bold;text-decoration:none;cursor:pointer;margin:4px 3px 4px 0}
+button:hover,.btn:hover{background:#ff3030}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin-top:16px}
+.item{background:#111;border:1px solid #393939;border-radius:10px;padding:15px 8px;text-align:center}
+.item span{display:block;color:#bbb;font-size:13px}
+.item strong{display:block;margin-top:7px;font-size:18px;overflow-wrap:anywhere}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:15px}
+.price{padding:17px 8px;text-align:center;background:#111;border:1px solid #552222;border-radius:10px}
+.price h3{font-size:17px}
+.price strong{font-size:20px}
+.rules{padding-left:22px}
+.rules li{margin:7px 0}
+.small{color:#aaa;font-size:13px;margin-top:12px}
+.monitor{display:block;width:160px;max-width:100%;height:auto;margin:18px auto}
+footer{text-align:center;padding:23px 12px;color:#999;border-top:1px solid #333;font-size:13px}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>LOST_PUBLIC</h1>
-    <p>[PUBLIC #1] — CS 1.6 SERVER</p>
-    <p>🔥 Serverimizga xush kelibsiz!</p>
-  </header>
+<header>
+  <h1>LOST_PUBLIC</h1>
+  <p>[PUBLIC #1] — CS 1.6 SERVER</p>
+  <p>🔥 Eng mazzasi LOST PUBLIC!</p>
+</header>
 
-  <main class="container">
+<main class="container">
 
-    <section class="card">
-      <h2>🎮 SERVER MA'LUMOTLARI</h2>
-      <p>Server nomi: <strong>[LOST_PUBLIC]|[PUBLIC #1]</strong></p>
-      <p class="server-ip" id="server-ip">195.158.4.108:27043</p>
+  <section class="card">
+    <h2>🎮 SERVER MA'LUMOTLARI</h2>
+    <p>Server nomi: <strong>[LOST_PUBLIC]|[PUBLIC #1]</strong></p>
+    <p class="server-ip">195.158.4.108:27043</p>
 
-      <button type="button" onclick="copyIP()">📋 IP nusxalash</button>
+    <button onclick="copyIP()">📋 IP nusxalash</button>
+    <a class="btn" href="https://gamemonitoring.net/counter-strike/servers/15051113" target="_blank" rel="noopener">🔎 Monitoring</a>
+    <p id="copy-message" class="small" aria-live="polite"></p>
+  </section>
 
-      <a class="connect-button"
-         href="https://gamemonitoring.net/counter-strike/servers/15051113"
-         target="_blank" rel="noopener">
-        🔎 Serverni ko‘rish
-      </a>
+  <section class="card" id="live-server">
+    <h2>📡 LIVE SERVER STATUS</h2>
 
-      <p id="copy-message" class="small" aria-live="polite"></p>
-    </section>
-
-    <section class="card" id="live-server">
-      <h2>📡 LIVE SERVER STATUS</h2>
-
-      <div class="status-grid">
-        <div class="status-item">
-          <span>Server holati</span>
-          <strong id="status">Monitoring vidjeti orqali</strong>
-        </div>
-
-        <div class="status-item">
-          <span>O‘yinchilar</span>
-          <strong id="players">Monitoringda</strong>
-        </div>
-
-        <div class="status-item">
-          <span>Joriy xarita</span>
-          <strong id="map">Monitoringda</strong>
-        </div>
+    <div class="grid">
+      <div class="item">
+        <span>Server holati</span>
+        <strong id="status">Tekshirilmoqda...</strong>
       </div>
 
-      <a href="https://gamemonitoring.net/counter-strike/servers/15051113"
-         target="_blank" rel="noopener">
-        <img
-          class="monitor"
-          src="https://widgets.gamemonitoring.net/servers/15051113/160x248.webp"
-          alt="LOST_PUBLIC server monitoring vidjeti"
-          loading="lazy">
-      </a>
-
-      <p class="small">
-        Serverning joriy holati, o‘yinchilar soni va xarita ma'lumotlarini
-        monitoring vidjetidan tekshiring.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>💎 ADMINLIKLAR NARXI</h2>
-
-      <div class="prices">
-        <div class="price">
-          <h3>PREMIUM</h3>
-          <strong>35 000 so‘m</strong>
-        </div>
-
-        <div class="price">
-          <h3>GOLD</h3>
-          <strong>45 000 so‘m</strong>
-        </div>
-
-        <div class="price">
-          <h3>SPONSOR</h3>
-          <strong>80 000 so‘m</strong>
-        </div>
-
-        <div class="price">
-          <h3>ADMIN</h3>
-          <strong>100 000 so‘m</strong>
-        </div>
-
-        <div class="price">
-          <h3>GL ADMIN</h3>
-          <strong>120 000 so‘m</strong>
-        </div>
+      <div class="item">
+        <span>O‘yinchilar</span>
+        <strong id="players">-- / --</strong>
       </div>
 
-      <p class="small">
-        Adminlik sotib olish bo‘yicha server ma'muriyatiga murojaat qiling.
-      </p>
-    </section>
+      <div class="item">
+        <span>Joriy xarita</span>
+        <strong id="map">--</strong>
+      </div>
+    </div>
 
-    <section class="card">
-      <h2>📜 SERVER QOIDALARI</h2>
-      <ol class="rules">
-        <li>O‘yinchilarga hurmat bilan munosabatda bo‘ling.</li>
-        <li>Cheat va taqiqlangan dasturlardan foydalanmang.</li>
-        <li>Server ma'muriyatining ko‘rsatmalariga rioya qiling.</li>
-        <li>Chatda haqorat va spam yozmang.</li>
-        <li>O‘yinni halol va maroqli o‘ynang.</li>
-      </ol>
-    </section>
+    <a href="https://gamemonitoring.net/counter-strike/servers/15051113" target="_blank" rel="noopener">
+      <img class="monitor"
+           src="https://widgets.gamemonitoring.net/servers/15051113/160x248.webp"
+           alt="LOST_PUBLIC monitoring vidjeti">
+    </a>
 
-    <section class="card">
-      <h2>🏆 TOP 10 O‘YINCHI</h2>
-      <p>
-        O‘yinchilar reytingi tez orada qo‘shiladi.
-      </p>
-      <p class="small">
-        Haqiqiy reytingni chiqarish uchun server statistikasi bilan
-        alohida ulanish talab qilinadi.
-      </p>
-    </section>
+    <p id="updated" class="small">Ma'lumot olinishi kutilmoqda.</p>
+    <p class="small">Status har 60 soniyada yangilanadi.</p>
+  </section>
 
-  </main>
+  <section class="card">
+    <h2>💎 ADMINLIKLAR NARXI</h2>
 
-  <footer>
-    <p>© 2026 LOST_PUBLIC | PUBLIC #1</p>
-    <p>CS 1.6 serverimizda sizni kutib qolamiz! 🔥</p>
-    <p>195.158.4.108:27043</p>
-  </footer>
+    <div class="prices">
+      <div class="price"><h3>PREMIUM</h3><strong>35 000 so‘m</strong></div>
+      <div class="price"><h3>GOLD</h3><strong>45 000 so‘m</strong></div>
+      <div class="price"><h3>SPONSOR</h3><strong>80 000 so‘m</strong></div>
+      <div class="price"><h3>ADMIN</h3><strong>100 000 so‘m</strong></div>
+      <div class="price"><h3>GL ADMIN</h3><strong>120 000 so‘m</strong></div>
+    </div>
 
-  <script>
-    async function copyIP() {
-      const ip = "195.158.4.108:27043";
-      const message = document.getElementById("copy-message");
+    <p class="small">Adminlik sotib olish uchun server ma'muriyatiga murojaat qiling.</p>
+  </section>
 
-      try {
-        await navigator.clipboard.writeText(ip);
-        message.textContent = "✅ Server IP manzili nusxalandi!";
-      } catch (error) {
-        message.textContent = "IP manzil: " + ip;
-      }
+  <section class="card">
+    <h2>📜 SERVER QOIDALARI</h2>
+    <ol class="rules">
+      <li>Boshqa o‘yinchilarni hurmat qiling.</li>
+      <li>Cheat va taqiqlangan dasturlardan foydalanmang.</li>
+      <li>Server ma'muriyati qoidalariga rioya qiling.</li>
+      <li>Chatda haqorat va spam yozmang.</li>
+      <li>Halol o‘ynang va o‘yindan zavqlaning.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>🏆 TOP 10 O‘YINCHI</h2>
+    <p>O‘yinchilar reytingi hali ulanmagan.</p>
+    <p class="small">Haqiqiy TOP 10 uchun serveringizning CSStatsX SQL ma'lumotlar bazasini xavfsiz backend orqali ulash kerak.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 LOST_PUBLIC | PUBLIC #1</p>
+  <p>HAMMALARIZNI SERVERIMIZDA KUTIB QOLAMIZ!</p>
+  <p>195.158.4.108:27043</p>
+</footer>
+
+<script>
+async function copyIP(){
+  const ip="195.158.4.108:27043";
+  const msg=document.getElementById("copy-message");
+
+  try{
+    await navigator.clipboard.writeText(ip);
+    msg.textContent="✅ Server IP nusxalandi!";
+  }catch(e){
+    msg.textContent="Server IP: "+ip;
+  }
+}
+
+async function updateServerStatus(){
+  const statusEl=document.getElementById("status");
+  const playersEl=document.getElementById("players");
+  const mapEl=document.getElementById("map");
+  const updatedEl=document.getElementById("updated");
+
+  try{
+    const response=await fetch(
+      "https://api.gamemonitoring.net/servers/15051113",
+      {cache:"no-store"}
+    );
+
+    if(!response.ok) throw new Error("API javobi: "+response.status);
+
+    const data=await response.json();
+    const server=data.response;
+
+    if(!server) throw new Error("Server ma'lumoti topilmadi");
+
+    if(server.status===true){
+      statusEl.textContent="🟢 ONLINE";
+    }else{
+      statusEl.textContent="🔴 OFFLINE";
     }
-  </script>
+
+    playersEl.textContent=
+      (server.numplayers ?? 0)+" / "+(server.maxplayers ?? 0);
+
+    mapEl.textContent=server.map || "Noma'lum";
+    updatedEl.textContent="Oxirgi tekshiruv: "+new Date().toLocaleTimeString("uz-UZ");
+
+  }catch(error){
+    statusEl.textContent="⚪ Ma'lumot olinmadi";
+    playersEl.textContent="-- / --";
+    mapEl.textContent="--";
+    updatedEl.textContent="API bilan aloqa bo‘lmadi. Monitoring vidjetini tekshiring.";
+    console.error("LOST_PUBLIC status xatosi:",error);
+  }
+}
+
+updateServerStatus();
+setInterval(updateServerStatus,60000);
+</script>
 
 </body>
 </html>
